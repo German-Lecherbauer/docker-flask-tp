@@ -1,31 +1,27 @@
-# Base image
-        FROM python:3.11-slim
+## Base image
+FROM python:3.11-slim
 
-        # Avoid Python writing .pyc files and enable unbuffered logs
-        ENV PYTHONDONTWRITEBYTECODE=1             PYTHONUNBUFFERED=1
+# Evitar .pyc y logs bufferizados
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
 
-        # Workdir
-        WORKDIR /app
+# Workdir
+WORKDIR /app
 
-        # Install dependencies first for better layer caching
-        COPY requirements.txt ./
-        RUN pip install --no-cache-dir -r requirements.txt
+# Dependencias primero (mejor cache)
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-        # Copy app source
-        COPY . .
+# Copiar código
+COPY . .
 
-        # Expose port
-        EXPOSE 8000
+# Exponer puerto
+EXPOSE 8000
 
-        # Healthcheck (simple HTTP GET to the health endpoint)
-        HEALTHCHECK --interval=30s --timeout=3s --retries=3 CMD python - << 'PY'
-import urllib.request, sys
-try:
-    with urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2) as r:
-        sys.exit(0 if r.status == 200 else 1)
-except Exception:
-    sys.exit(1)
-PY
+# Healthcheck (one-liner válido)
+HEALTHCHECK --interval=30s --timeout=3s --retries=3 CMD \
+  python -c "import urllib.request as u, sys; sys.exit(0 if u.urlopen('http://127.0.0.1:8000/health', timeout=2).status==200 else 1)"
 
-        # Default command
-        CMD ["python", "app.py"]
+# Comando por defecto
+CMD ["python", "app.py"]
+

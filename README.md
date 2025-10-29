@@ -5,7 +5,7 @@ La idea fue practicar cómo usar Git, crear una imagen personalizada y correr la
 
 ---
 
-## 📂 Archivos principales
+## Archivos principales
 
 - `app.py` → código de la app Flask.  
 - `requirements.txt` → dependencias necesarias (solo Flask).  
@@ -15,7 +15,7 @@ La idea fue practicar cómo usar Git, crear una imagen personalizada y correr la
 
 ---
 
-## ⚙️ Cómo levantar la app
+## Cómo levantar la app
 
 1. Clonar o descargar el repositorio:
    ```bash
@@ -30,7 +30,7 @@ La idea fue practicar cómo usar Git, crear una imagen personalizada y correr la
 
 3. Ejecutar el contenedor:
    ```bash
-   docker run --rm -p 8000:8000 -e MESSAGE="Hola! Soy Germán y esto corre en Docker 😎" glecherbauer/flask-tp:1.0
+   docker run --rm -p 8000:8000 -e MESSAGE="Aplicación Flask corriendo dentro de un contenedor Docker 🐋" glecherbauer/flask-tp:1.0
    ```
 
 4. Abrir en el navegador:
@@ -39,7 +39,7 @@ La idea fue practicar cómo usar Git, crear una imagen personalizada y correr la
 
 ---
 
-## 🧩 Qué hace la app
+## Qué hace la app
 
 - Muestra un mensaje configurable desde una variable de entorno (`MESSAGE`).
 - Tiene un endpoint `/health` que devuelve `{"status":"ok"}` para probar que está funcionando.
@@ -47,7 +47,7 @@ La idea fue practicar cómo usar Git, crear una imagen personalizada y correr la
 
 ---
 
-## 🐋 Comandos básicos de Docker usados
+## Comandos básicos de Docker usados
 
 ```bash
 docker build -t <nombre-imagen> .
@@ -58,7 +58,7 @@ docker stop <container_id>
 
 ---
 
-## 🌿 Flujo Git utilizado
+## Flujo Git utilizado
 
 ```bash
 git init
@@ -71,22 +71,9 @@ git push -u origin main
 
 ---
 
-## 📸 Evidencias (para la entrega)
-
-- Captura del build exitoso en Docker.
-- Captura del navegador con la app corriendo.
-- Captura del repositorio subido a GitHub.
-
----
-
-## ✍️ Comentario personal
+## Motivos por el uso de Flask
 
 Elegí Flask porque es liviano y simple para este tipo de prácticas.  
 La idea principal fue entender el ciclo completo: crear la app, armar el Dockerfile, construir la imagen, correrla y versionar todo con Git.
 
----
 
-**Autor:** Germán Lecherbauer  
-**Usuario GitHub:** [GLecherbauer](https://github.com/GLecherbauer)  
-**Materia:** Desarrollo de Software  
-**Fecha:** Octubre 2025

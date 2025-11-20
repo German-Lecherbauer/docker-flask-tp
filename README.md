@@ -1,5 +1,19 @@
 # TP Docker + Git - Mini App Flask
 
+## Tecnologías utilizadas
+
+- Python 3
+- Flask
+- Docker
+- Git
+
+## Características principales
+
+- Endpoint raíz que muestra un mensaje configurable mediante variable de entorno `MESSAGE`.
+- Endpoint `/health` que devuelve `{"status": "ok"}` para comprobar que el contenedor está funcionando.
+- Contenedor Docker ejecutando la app en el puerto `8000`.
+- Uso de un `Dockerfile` simple y un archivo `requirements.txt` para gestionar dependencias.
+
 Este trabajo práctico consiste en una pequeña aplicación web con **Flask (Python)** que se ejecuta dentro de un contenedor de **Docker**.  
 La idea fue practicar cómo usar Git, crear una imagen personalizada y correr la app en un entorno aislado.
 
